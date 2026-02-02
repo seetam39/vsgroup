@@ -2,6 +2,9 @@ import React from 'react';
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, ArrowRight } from 'lucide-react';
 import logo from '../assets/logo.png';
 
+export const phoneNumbers = ['+91 75280 69737', '+91 97802 51095'];
+export const footerEmail = 'vsgroup2510@gmail.com';
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -66,15 +69,15 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-[#5B5BD3]" />
-                <span>+91 75280 69737</span>
+                <span>{phoneNumbers[0]}</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-[#5B5BD3]" />
-                <span>+91 97802 51095</span>
+                <span>{phoneNumbers[1]}</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-[#5B5BD3]" />
-                <span>vsgroup2510@gmail.com</span>
+                <span>{footerEmail}</span>
               </li>
             </ul>
 

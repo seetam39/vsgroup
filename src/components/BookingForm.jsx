@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Facebook, Twitter, Linkedin, Instagram, Send } from 'lucide-react';
+import { phoneNumbers, footerEmail } from './Footer';
 
 export default function BookingForm() {
   const [formData, setFormData] = useState({
@@ -27,17 +28,22 @@ export default function BookingForm() {
     {
       icon: Phone,
       label: 'Phone',
-      value: '+1 (555) 123-4567'
+      value: phoneNumbers[0] 
+    },
+    {
+      icon: Phone,
+      label: 'Phone',
+      value: phoneNumbers[1]
     },
     {
       icon: Mail,
       label: 'Email',
-      value: 'hello@techserve.com'
+      value: footerEmail
     },
     {
       icon: MapPin,
       label: 'Office',
-      value: '123 Tech Street, San Francisco, CA 94102'
+      value: 'jalandhar,punjab,india'
     }
   ];
 
