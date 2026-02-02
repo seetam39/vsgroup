@@ -1,84 +1,127 @@
 import React from 'react';
-import { Code, Smartphone, Video, ClipboardList, ArrowRight } from 'lucide-react';
+import { Code, Video, Palette, TrendingUp, List, Pen, MessageCircle, Headphones, ArrowRight } from 'lucide-react';
 
-export default function Services() {
+export default function ServicesSection() {
   const services = [
     {
+      id: 1,
       icon: Code,
       title: 'Web Development',
-      description: 'Custom websites and web applications built with modern technologies like React, Node.js, and more.',
-      features: ['Responsive Design', 'E-commerce Solutions', 'CMS Development', 'API Integration']
+      description: 'Custom websites and web applications built with modern technologies',
+      bgColor: 'bg-blue-50',
+      iconColor: 'bg-indigo-600',
+      linkColor: 'text-indigo-600'
     },
     {
-      icon: Smartphone,
-      title: 'App Development',
-      description: 'Native and cross-platform mobile applications for iOS and Android devices.',
-      features: ['iOS Development', 'Android Development', 'App Testing', 'App Store Launch']
-    },
-    {
+      id: 2,
       icon: Video,
       title: 'Video Editing',
-      description: 'Professional video editing services for marketing, social media, and corporate presentations.',
-      features: ['Motion Graphics', 'Color Grading', 'Sound Design', 'Visual Effects']
+      description: 'Professional video editing services for marketing and content creation',
+      bgColor: 'bg-pink-50',
+      iconColor: 'bg-pink-600',
+      linkColor: 'text-pink-600'
     },
     {
-      icon: ClipboardList,
+      id: 3,
+      icon: Palette,
+      title: 'Logo Design',
+      description: 'Unique and memorable logos that represent your brand identity',
+      bgColor: 'bg-purple-50',
+      iconColor: 'bg-purple-600',
+      linkColor: 'text-purple-600'
+    },
+    {
+      id: 4,
+      icon: TrendingUp,
+      title: 'Data Analytics',
+      description: 'Transform data into actionable insights for better decision making',
+      bgColor: 'bg-teal-50',
+      iconColor: 'bg-teal-600',
+      linkColor: 'text-teal-600'
+    },
+    {
+      id: 5,
+      icon: List,
       title: 'Project Management',
-      description: 'Efficient project management services to ensure timely delivery and successful completion of your projects.',
-      features: ['Task Planning', 'Team Coordination', 'Progress Tracking', 'Deadline Management']
+      description: 'Expert project management to ensure timely and successful delivery',
+      bgColor: 'bg-orange-50',
+      iconColor: 'bg-orange-600',
+      linkColor: 'text-orange-600'
+    },
+    {
+      id: 6,
+      icon: Pen,
+      title: 'Graphic Design',
+      description: 'Stunning graphics and visual content that captivate your audience',
+      bgColor: 'bg-emerald-50',
+      iconColor: 'bg-emerald-600',
+      linkColor: 'text-emerald-600'
+    },
+    {
+      id: 7,
+      icon: MessageCircle,
+      title: 'Chatbot Development',
+      description: 'AI-powered chatbots for automated customer engagement',
+      bgColor: 'bg-rose-50',
+      iconColor: 'bg-rose-600',
+      linkColor: 'text-rose-600'
+    },
+    {
+      id: 8,
+      icon: Headphones,
+      title: 'Instant Support',
+      description: '24/7 technical support and maintenance for your peace of mind',
+      bgColor: 'bg-amber-50',
+      iconColor: 'bg-amber-600',
+      linkColor: 'text-amber-600'
     }
   ];
 
   return (
-    <section id="services" className="py-20">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-[#5B5BD3]/20 text-[#5B5BD3] px-4 py-2 rounded-full text-sm mb-6">
-            <span className="font-medium">What We Offer</span>
-          </div>
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
-            Our Services
-          </h2>
+    <div className="min-h-screen bg-white py-16 px-4">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <p className="text-indigo-600 font-semibold text-sm uppercase tracking-wide mb-3">
+            OUR SERVICES
+          </p>
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
+            Comprehensive Tech Solutions
+          </h1>
           <p className="text-xl text-gray-600">
-            Comprehensive digital solutions for your business
+            We offer a full suite of services to meet all your digital needs
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => {
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {services.map((service) => {
             const IconComponent = service.icon;
             return (
               <div
-                key={index}
-                className="bg-white rounded-2xl shadow-lg p-8"
+                key={service.id}
+                className={`${service.bgColor} rounded-2xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1`}
               >
                 {/* Icon */}
-                <div className="w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center mb-6">
-                  <IconComponent className="w-7 h-7 text-gray-700" />
+                <div className={`${service.iconColor} w-14 h-14 rounded-xl flex items-center justify-center mb-4`}>
+                  <IconComponent className="w-7 h-7 text-white" />
                 </div>
-                
-                {/* Title & Description */}
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+
+                {/* Title */}
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed mb-6">
+
+                {/* Description */}
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">
                   {service.description}
                 </p>
 
-                {/* Features List */}
-                <ul className="space-y-3 mb-6">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center gap-3 text-gray-600">
-                      <span className="w-2 h-2 bg-[#5B5BD3] rounded-full"></span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Learn More */}
-                <a href="#" className="inline-flex items-center gap-1 text-[#5B5BD3] font-semibold hover:text-[#5B5BD3]/80">
+                {/* Learn More Link */}
+                <a
+                  href="#"
+                  className={`${service.linkColor} font-semibold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all duration-300`}
+                >
                   Learn More
                   <ArrowRight className="w-4 h-4" />
                 </a>
@@ -86,22 +129,13 @@ export default function Services() {
             );
           })}
         </div>
-
-        {/* CTA Section */}
-        <div className="mt-12 text-center">
-          <div className="bg-[#5B5BD3] rounded-3xl p-10 text-white">
-            <h3 className="text-3xl font-bold mb-3">
-              Ready to Start Your Project?
-            </h3>
-            <p className="text-[#5B5BD3]/30 text-lg mb-6">
-              Contact us for a free consultation
-            </p>
-            <a href="https://calendly.com/vsgroup2510/30min" target="_blank" rel="noopener noreferrer" className="bg-white text-[#5B5BD3] px-8 py-3 rounded-full font-semibold">
-              Get Free Consultation
-            </a>
-          </div>
-        </div>
       </div>
-    </section>
+
+      {/* Help Button */}
+      <button className="fixed bottom-8 right-8 bg-indigo-600 text-white px-5 py-3 rounded-full shadow-lg hover:bg-indigo-700 transition-all duration-300 flex items-center gap-2 hover:shadow-xl">
+        <span className="text-lg">❓</span>
+        <span className="font-semibold">Help</span>
+      </button>
+    </div>
   );
 }
