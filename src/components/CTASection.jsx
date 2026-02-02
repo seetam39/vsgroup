@@ -3,7 +3,7 @@ import { Calendar, Phone } from 'lucide-react';
 
 export default function CTASection() {
   return (
-    <div className="py-16 bg-[#5B5BD3]">
+    <div className="py-16 bg-[#5050c8]">
       <div className="max-w-4xl mx-auto text-center px-6">
         {/* Heading */}
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">

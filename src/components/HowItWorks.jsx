@@ -50,7 +50,7 @@ export default function HowItWorks() {
             >
               {/* Number Circle */}
               <div className="relative mb-6">
-                <div className="w-20 h-20 rounded-full bg-[#5B5BD3] flex items-center justify-center shadow-lg">
+                <div className="w-20 h-20 rounded-full bg-[#4d4dda] flex items-center justify-center shadow-lg">
                   <span className="text-3xl font-bold text-white">
                     {step.number}
                   </span>
