@@ -12,6 +12,7 @@ import logo from './assets/logo.png';
 
 function App() {
   return (
+    
     <div className="min-h-screen bg-gradient-to-br from-[#5B5BD3]/10 via-white to-blue-50">
       {/* Navigation */}
       <Navbar />
