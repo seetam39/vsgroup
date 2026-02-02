@@ -185,11 +185,7 @@ export default function BookingSection() {
         </div>
       </div>
 
-      {/* Help Button */}
-      <button className="fixed bottom-8 right-8 bg-[#5B5BD3] text-white px-5 py-3 rounded-full shadow-lg hover:bg-[#5B5BD3]/80 transition-all duration-300 flex items-center gap-2 hover:shadow-xl">
-        <span className="text-lg">❓</span>
-        <span className="font-semibold">Help</span>
-      </button>
+     
     </div>
   );
 }

@@ -131,11 +131,7 @@ export default function ServicesSection() {
         </div>
       </div>
 
-      {/* Help Button */}
-      <button className="fixed bottom-6 sm:bottom-8 right-6 sm:right-8 bg-[#5B5BD3] text-white px-4 sm:px-5 py-2 sm:py-3 rounded-full shadow-lg hover:bg-[#5B5BD3]/80 transition-all duration-300 flex items-center gap-2 hover:shadow-xl z-50">
-        <span className="text-base sm:text-lg">❓</span>
-        <span className="font-semibold text-sm sm:text-base">Help</span>
-      </button>
+      
     </div>
   );
 }
