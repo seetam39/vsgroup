@@ -44,7 +44,7 @@ export default function RecentWork() {
   const allProjects = [...projects, ...projects, ...projects];
 
   return (
-    <section id="portfolio" className="py-16 px-4 bg-white overflow-hidden">
+    <section id="portfolio" className="py-16 px-4 bg-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">

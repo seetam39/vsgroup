@@ -60,7 +60,7 @@ export default function BookingForm() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-16 px-4" id="contact">
+    <div className="min-h-screen bg-white py-16 px-4" id="contact">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left Column - Contact Info */}
