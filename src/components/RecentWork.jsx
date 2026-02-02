@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import hunarImage from '../assets/Hunar.png';
 import bridgeImage from '../assets/bridge.png';
 import vandeBharatImage from '../assets/vandebharat.png';
@@ -55,15 +54,11 @@ export default function RecentWork() {
     setCurrentSlide((prev) => (prev + 1) % projects.length);
   };
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + projects.length) % projects.length);
-  };
-
-  // Auto-slide every 6 seconds
+  // Auto-slide every 2 seconds (faster)
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 4000);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, []);
@@ -90,80 +85,49 @@ export default function RecentWork() {
           </p>
         </div>
 
-        {/* Carousel */}
-        <div className="relative">
-          {/* Projects Slider */}
-          <div className="overflow-hidden">
-            <div className="flex transition-transform duration-500 ease-in-out gap-6">
-              {getVisibleProjects().map((project) => {
-                return (
-                  <div
-                    key={project.id}
-                    className={`flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] transition-all duration-300 ${
-                      project.displayIndex === 1 ? 'scale-105 z-10' : 'scale-95 opacity-80'
-                    }`}
-                  >
-                    <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                      {/* Project Image */}
-                     <div className="relative h-60 bg-white overflow-hidden group">
-  <img
-    src={project.image}
-    alt={project.title}
-    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-  />
-</div>
+        {/* Projects Slider */}
+        <div className="overflow-hidden">
+          <div className="flex transition-transform duration-300 ease-in-out gap-6">
+            {getVisibleProjects().map((project) => {
+              return (
+                <div
+                  key={project.id}
+                  className={`flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] transition-all duration-300 ${
+                    project.displayIndex === 1 ? 'scale-105 z-10' : 'scale-95 opacity-80'
+                  }`}
+                >
+                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                    {/* Project Image */}
+                    <div className="relative h-60 bg-white overflow-hidden group">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
 
-
-                      {/* Project Info */}
-                      <div className="p-6">
-                        <div className={`text-sm font-semibold ${project.categoryColor} mb-2 tracking-wide`}>
-                          {project.category}
-                        </div>
-                        <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                          {project.title}
-                        </h3>
-                        <p className="text-gray-600 leading-relaxed mb-4">
-                          {project.description}
-                        </p>
-                        {project.url && (
-                          <a href={project.url} target="_blank" rel="noopener noreferrer" className="text-[#5B5BD3] font-semibold hover:underline">
-                            Visit Website →
-                          </a>
-                        )}
+                    {/* Project Info */}
+                    <div className="p-6">
+                      <div className={`text-sm font-semibold ${project.categoryColor} mb-2 tracking-wide`}>
+                        {project.category}
                       </div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                        {project.title}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed mb-4">
+                        {project.description}
+                      </p>
+                      {project.url && (
+                        <a href={project.url} target="_blank" rel="noopener noreferrer" className="text-[#5B5BD3] font-semibold hover:underline">
+                          Visit Website →
+                        </a>
+                      )}
                     </div>
                   </div>
-                );
-              })}
-            </div>
+                </div>
+              );
+            })}
           </div>
-
-          {/* Navigation Buttons */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors duration-300 z-20"
-          >
-            <ChevronLeft className="w-6 h-6 text-gray-700" />
-          </button>
-          <button
-            onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors duration-300 z-20"
-          >
-            <ChevronRight className="w-6 h-6 text-gray-700" />
-          </button>
-        </div>
-
-        {/* Dots Indicator */}
-        <div className="flex justify-center gap-2 mt-8">
-          {projects.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentSlide ? 'bg-blue-600 w-8' : 'bg-gray-300 hover:bg-gray-400'
-              }`}
-            />
-          ))}
         </div>
       </div>
     </section>
