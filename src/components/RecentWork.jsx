@@ -15,7 +15,7 @@ export default function RecentWork() {
       description: 'E-commerce platform for authentic Kashmiri traditional wear, serving customers across UAE and India.',
       url: 'https://hunar.cc',
       image: hunarImage,
-      categoryColor: 'text-purple-500',
+      categoryColor: 'text-[#5B5BD3]',
       icon: null
     },
     {
@@ -25,7 +25,7 @@ export default function RecentWork() {
       description: 'Digital marketing and creative agency helping brands grow through strategic and creative work.',
       url: 'https://bridgescalemedia.com/',
       image: bridgeImage,
-      categoryColor: 'text-green-500',
+      categoryColor: 'text-[#5B5BD3]',
       icon: null
     },
     {
@@ -35,7 +35,7 @@ export default function RecentWork() {
       description: 'Hindi news portal publishing current events, local stories, viral news, videos, and articles.',
       url: 'https://vandebharat24.com/',
       image: vandeBharatImage,
-      categoryColor: 'text-orange-500',
+      categoryColor: 'text-[#5B5BD3]',
       icon: null
     },
     {
@@ -45,7 +45,7 @@ export default function RecentWork() {
       description: 'Hindi current affairs and news portal covering national and international events.',
       url: 'https://dcadailycurrentaffairs.com/',
       image: dcaImage,
-      categoryColor: 'text-red-500',
+      categoryColor: 'text-[#5B5BD3]',
       icon: null
     }
   ];
@@ -54,26 +54,17 @@ export default function RecentWork() {
     setCurrentSlide((prev) => (prev + 1) % projects.length);
   };
 
-  // Auto-slide every 2 seconds (faster)
+  // Auto-slide every 1 second (very fast)
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 2000);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, []);
 
-  const getVisibleProjects = () => {
-    const visible = [];
-    for (let i = 0; i < 3; i++) {
-      const index = (currentSlide + i) % projects.length;
-      visible.push({ ...projects[index], displayIndex: i });
-    }
-    return visible;
-  };
-
   return (
-    <section id="portfolio" className="min-h-screen bg-gray-50 py-16 px-4">
+    <section id="portfolio" className="py-16 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -85,48 +76,51 @@ export default function RecentWork() {
           </p>
         </div>
 
-        {/* Projects Slider */}
-        <div className="overflow-hidden">
-          <div className="flex transition-transform duration-300 ease-in-out gap-6">
-            {getVisibleProjects().map((project) => {
-              return (
+        {/* Simple Carousel */}
+        <div className="relative">
+          <div className="overflow-hidden">
+            <div 
+              className="flex transition-transform duration-300 ease-linear gap-6"
+              style={{ 
+                transform: `translateX(-${currentSlide * (100 / 3 + 2)}%)`
+              }}
+            >
+              {projects.map((project) => (
                 <div
                   key={project.id}
-                  className={`flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] transition-all duration-300 ${
-                    project.displayIndex === 1 ? 'scale-105 z-10' : 'scale-95 opacity-80'
-                  }`}
+                  className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3"
                 >
-                  <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                  <div className="bg-gray-50 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow duration-300">
                     {/* Project Image */}
-                    <div className="relative h-60 bg-white overflow-hidden group">
+                    <div className="relative h-48 bg-white overflow-hidden">
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full object-cover"
                       />
                     </div>
 
                     {/* Project Info */}
-                    <div className="p-6">
-                      <div className={`text-sm font-semibold ${project.categoryColor} mb-2 tracking-wide`}>
+                    <div className="p-5">
+                      <div className={`text-xs font-semibold ${project.categoryColor} mb-2 tracking-wide uppercase`}>
                         {project.category}
                       </div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">
                         {project.title}
                       </h3>
-                      <p className="text-gray-600 leading-relaxed mb-4">
+                      <p className="text-gray-600 text-sm leading-relaxed">
                         {project.description}
                       </p>
                       {project.url && (
-                        <a href={project.url} target="_blank" rel="noopener noreferrer" className="text-[#5B5BD3] font-semibold hover:underline">
+                        <a href={project.url} target="_blank" rel="noopener noreferrer" className="text-[#5B5BD3] font-semibold text-sm hover:underline mt-3 inline-block">
                           Visit Website →
                         </a>
                       )}
                     </div>
                   </div>
                 </div>
-              );
-            })}
+              ))}
+            </div>
           </div>
         </div>
       </div>
