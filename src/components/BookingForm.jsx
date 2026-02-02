@@ -65,7 +65,7 @@ export default function BookingForm() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left Column - Contact Info */}
           <div>
-            <p className="text-indigo-600 font-semibold text-sm uppercase tracking-wide mb-3">
+            <p className="text-[#5B5BD3] font-semibold text-sm uppercase tracking-wide mb-3">
               GET IN TOUCH
             </p>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -81,7 +81,7 @@ export default function BookingForm() {
                 const IconComponent = item.icon;
                 return (
                   <div key={index} className="flex items-start gap-4">
-                    <div className="bg-gradient-to-br from-indigo-500 to-purple-600 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <div className="bg-[#5B5BD3] w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -102,7 +102,7 @@ export default function BookingForm() {
                     key={index}
                     href={social.href}
                     aria-label={social.label}
-                    className="w-12 h-12 bg-white rounded-lg flex items-center justify-center hover:bg-indigo-600 hover:text-white transition-all duration-300 shadow-sm hover:shadow-md"
+                    className="w-12 h-12 bg-white rounded-lg flex items-center justify-center hover:bg-[#5B5BD3] hover:text-white transition-all duration-300 shadow-sm hover:shadow-md"
                   >
                     <IconComponent className="w-5 h-5" />
                   </a>
@@ -126,7 +126,7 @@ export default function BookingForm() {
                   onChange={handleChange}
                   placeholder="John Doe"
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#5B5BD3] focus:border-transparent"
                 />
               </div>
 
@@ -142,7 +142,7 @@ export default function BookingForm() {
                   onChange={handleChange}
                   placeholder="john@example.com"
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#5B5BD3] focus:border-transparent"
                 />
               </div>
 
@@ -156,7 +156,7 @@ export default function BookingForm() {
                   value={formData.service}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent appearance-none cursor-pointer bg-white"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#5B5BD3] focus:border-transparent appearance-none cursor-pointer bg-white"
                   style={{
                     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`,
                     backgroundRepeat: 'no-repeat',
@@ -184,14 +184,14 @@ export default function BookingForm() {
                   placeholder="Tell us about your project..."
                   rows="5"
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#5B5BD3] focus:border-transparent resize-none"
                 ></textarea>
               </div>
 
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-4 rounded-lg font-semibold text-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2"
+                className="w-full bg-[#5B5BD3] text-white py-4 rounded-lg font-semibold text-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2"
               >
                 <Send className="w-5 h-5" />
                 Send Message
@@ -202,7 +202,7 @@ export default function BookingForm() {
       </div>
 
       {/* Help Button */}
-      <button className="fixed bottom-8 right-8 bg-indigo-600 text-white px-5 py-3 rounded-full shadow-lg hover:bg-indigo-700 transition-all duration-300 flex items-center gap-2 hover:shadow-xl">
+      <button className="fixed bottom-8 right-8 bg-[#5B5BD3] text-white px-5 py-3 rounded-full shadow-lg hover:bg-[#5B5BD3]/80 transition-all duration-300 flex items-center gap-2 hover:shadow-xl">
         <span className="text-lg">❓</span>
         <span className="font-semibold">Help</span>
       </button>
